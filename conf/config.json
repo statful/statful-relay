@@ -1,0 +1,12 @@
+{
+  "port": 2003,
+  "address": "localhost",
+  "tel": {
+    "host": "tel.mindera",
+    "port": 80,
+    "url": {
+      "accounts": "/tel/v1.0/accounts"
+    },
+    "refreshInterval": 60000
+  }
+}

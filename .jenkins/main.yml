@@ -1,0 +1,78 @@
+---
+
+### x_ are macros: https://bitbucket.org/mindera/mind-meta-jjb-root for more information
+
+
+###############
+### PROJECT
+- project:
+    name: 'telemetry-carbon-tagger'
+    project_version: '0.1.0'
+    giturl: git@bitbucket.org:mindera/telemetry-carbon-tagger.git
+    env:
+      - qa
+    jobs:
+      - '{name}-build'
+#      - '{name}-{env}-deploy'
+
+
+###############
+### DEFAULTS
+- defaults:
+    name: global
+    description: 'Do NOT edit this job through the web! '
+    project-type: freestyle
+    node: ordinary
+    wrappers:
+      - timestamps
+
+
+###############
+### TEMPLATES
+
+# Build
+- job-template:
+    name: "{name}-build"
+
+    properties:
+      - x_pipeline__build
+
+    wrappers:
+      - timestamps
+      - delivery-pipeline:
+          version-template: '{project_version}-$BUILD_NUMBER'
+          set-display-name: true
+
+    scm:
+      - git_shallow_clone_v1:
+          url: '{giturl}'
+          excluded-region: '.jenkins'
+
+    triggers:
+      - pollscm: "H/5 * * * *"
+
+    builders:
+      - shell: |
+          npm install
+          grunt release
+
+#    publishers:
+#      - x_trigger_next_on_success_v1:
+#          job: '{name}-qa-deploy'
+
+
+#### Deploy
+#- job-template:
+#    name: "{name}-{env}-deploy"
+#
+#    properties:
+#      - x_pipeline__qa_deploy
+#
+#    scm:
+#      - x_git_shallow_clone_bitbucket_v1:
+#          project_path: mind-ansible
+#
+#    builders:
+#      - shell: |
+#          cd playbooks/{name}
+#          ansible-playbook -u ec2-user -i development {name}.yml
