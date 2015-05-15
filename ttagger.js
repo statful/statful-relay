@@ -12,7 +12,9 @@ var config = require('./lib/config'),
 config.configFile(process.argv[2], function (config) {
 
     // start the process to refresh accounts from TEL
-    tel.refreshAccounts(config);
+    tel.setupAccounts(config).on('accountsChanged', function(accounts) {
+        config.destinations = api.indexDestinations(config)
+    });
 
     // create TCP server
     tcp.start(config, api.processMetricLine(config));

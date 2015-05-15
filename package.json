@@ -3,7 +3,7 @@
   "description": "A system to filter the metrics for the clients",
   "author": "Mindera",
   "scripts": {
-    "start": "node tfilter.js config.json"
+    "start": "node ttagger.js conf/config.json"
   },
   "repository": {
     "type": "git",
@@ -11,15 +11,13 @@
   },
   "version": "0.1.0",
   "dependencies": {
-    "q": "^1.1.2",
-    "restify": "^2.8.5",
-    "restify-cookies": "^0.1.1"
+    "elasticsearch": "^4.0.2"
   },
   "engines": {
     "node": ">=0.8"
   },
   "bin": {
-    "tfilter": "./bin/tfilter"
+    "ttagger": "./ttagger.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
