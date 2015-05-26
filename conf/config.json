@@ -10,7 +10,6 @@
     "refreshInterval": 60000
   },
   "es": {
-    "index": "graphite_metrics2",
     "log": "trace"
   }
 }
