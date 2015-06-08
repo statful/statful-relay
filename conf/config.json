@@ -9,7 +9,10 @@
     },
     "refreshInterval": 60000
   },
+  "cache": {
+    "maxSize": 30000
+  },
   "es": {
-    "log": "trace"
+    "log": "debug"
   }
 }

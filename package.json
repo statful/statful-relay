@@ -11,7 +11,8 @@
   },
   "version": "0.1.0",
   "dependencies": {
-    "elasticsearch": "^4.0.2"
+    "elasticsearch": "^4.0.2",
+    "simple-lru-cache": "0.0.2"
   },
   "engines": {
     "node": ">=0.8"
