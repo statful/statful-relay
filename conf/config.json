@@ -12,7 +12,10 @@
   "cache": {
     "maxSize": 30000
   },
+  "log": {
+    "level": "info"
+  },
   "es": {
-    "log": "debug"
+    "log": "error"
   }
 }
