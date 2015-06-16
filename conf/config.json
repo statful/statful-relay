@@ -1,5 +1,5 @@
 {
-  "port": 2003,
+  "port": 2013,
   "address": "localhost",
   "tel": {
     "host": "tel.mindera",
@@ -12,10 +12,14 @@
   "buffer": {
     "maxSize": 100
   },
-  "log": {
-    "level": "info"
-  },
-  "es": {
-    "log": "error"
+  "winston": {
+    "silent": false,
+    "level": "info",
+    "colorize": false,
+    "timestamp": false,
+    "prettyPrint": false,
+    "showLevel": true,
+    "debugStdout": true,
+    "handleExceptions": true
   }
 }
