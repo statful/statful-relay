@@ -9,8 +9,8 @@
     },
     "refreshInterval": 60000
   },
-  "cache": {
-    "maxSize": 30000
+  "buffer": {
+    "maxSize": 100
   },
   "log": {
     "level": "info"

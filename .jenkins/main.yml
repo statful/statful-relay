@@ -6,9 +6,9 @@
 ###############
 ### PROJECT
 - project:
-    name: 'telemetry-carbon-tagger'
+    name: 'telemetry-carbon-influxdb'
     project_version: '0.1.0'
-    giturl: git@bitbucket.org:mindera/telemetry-carbon-tagger.git
+    giturl: git@bitbucket.org:mindera/telemetry-carbon-influxdb.git
     env:
       - qa
     jobs:

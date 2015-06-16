@@ -1,13 +1,13 @@
 {
-  "name": "telemetry-carbon-tagger",
-  "description": "A system to filter the metrics for the clients",
+  "name": "telemetry-carbon-influxdb",
+  "description": "Listens to incomming carbon metrics and writes them to influxdb",
   "author": "Mindera",
   "scripts": {
-    "start": "node ttagger.js conf/config.json"
+    "start": "node influxdb.js conf/config.json"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mindera/telemetry-carbon-tagger.git"
+    "url": "https://bitbucket.org/mindera/telemetry-carbon-influxdb.git"
   },
   "version": "0.1.0",
   "dependencies": {
@@ -18,7 +18,7 @@
     "node": ">=0.8"
   },
   "bin": {
-    "ttagger": "./ttagger.js"
+    "ttagger": "./influxdb.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

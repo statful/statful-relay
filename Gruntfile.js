@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         },
         nodemon: {
             dev: {
-                script: 'ttagger.js',
+                script: 'influxdb.js',
                 options: {
                     args: ['conf/config.json']
                 }
