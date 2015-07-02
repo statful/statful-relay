@@ -12,9 +12,10 @@
   "buffer": {
     "maxSize": 100
   },
+  "influxdbVersion": "0.9",
   "winston": {
     "silent": false,
-    "level": "info",
+    "level": "debug",
     "colorize": false,
     "timestamp": false,
     "prettyPrint": false,
