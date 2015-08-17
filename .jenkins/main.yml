@@ -10,10 +10,10 @@
     project_version: '0.1.0'
     giturl: git@bitbucket.org:mindera/telemetry-carbon-influxdb.git
     env:
-      - qa
+      - tvg_telemetry_relay
     jobs:
       - '{name}-build'
-#      - '{name}-{env}-deploy'
+      - '{name}-{env}-deploy'
 
 
 ###############
