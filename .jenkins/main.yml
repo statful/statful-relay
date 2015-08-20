@@ -58,10 +58,6 @@
           npm install
           grunt release
 
-    publishers:
-      - x_manual_trigger_v1:
-          job: '{name}-tvg_telemetry_relay-deploy'
-
 
 ### Deploy
 - job-template:
