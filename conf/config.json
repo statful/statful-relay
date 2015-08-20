@@ -1,6 +1,12 @@
 {
-  "port": 2013,
-  "address": "localhost",
+  "carbon": {
+    "port": 2013,
+    "address": "localhost"
+  },
+  "collectd": {
+    "port": 2014,
+    "address": "localhost"
+  },
   "tel": {
     "host": "tel.mindera",
     "port": 80,
@@ -12,7 +18,7 @@
   "buffer": {
     "maxSize": 100
   },
-  "influxdbVersion": "0.9",
+  "influxdbSufix": "",
   "winston": {
     "silent": false,
     "level": "debug",
