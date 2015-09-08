@@ -1,7 +1,14 @@
 {
   "carbon": {
-    "port": 2013,
-    "address": "localhost"
+    "tcp": {
+      "port": 2013,
+      "address": "127.0.0.1"
+    },
+    "udp": {
+      "port": 2014,
+      "address": "127.0.0.1",
+      "ipv6": false
+    }
   },
   "collectd": {
     "port": 2014,
@@ -15,15 +22,16 @@
     },
     "refreshInterval": 60000
   },
-  "buffer": {
-    "maxSize": 100
+  "influxdb": {
+    "suffix": "test",
+    "flushInterval": 2000,
+    "maxBufferSize": 10
   },
-  "influxdbSufix": "test",
   "winston": {
     "silent": false,
     "level": "debug",
     "colorize": false,
-    "timestamp": false,
+    "timestamp": true,
     "prettyPrint": false,
     "showLevel": true,
     "debugStdout": true,
