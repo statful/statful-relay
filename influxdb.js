@@ -13,11 +13,11 @@ var config = require('./lib/config'),
 config.configFile(process.argv[2], function (config) {
 
     // start the process to refresh accounts from TEL
-    tel.setupAccounts(config).on('accountsChanged', function (accounts) {
+    tel.setupAccounts(config).on('accountsChanged', function () {
         config.destinations = influxdb.indexDestinations(config);
     });
 
-    // create TCP server for carbon proxy
+    // create servers for Carbon Listening
     carbon.createServer(config);
 
 
