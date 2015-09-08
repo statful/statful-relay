@@ -25,7 +25,7 @@
   "influxdb": {
     "suffix": "test",
     "flushInterval": 2000,
-    "maxBufferSize": 10
+    "maxBufferSize": 50000
   },
   "winston": {
     "silent": false,
