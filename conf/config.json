@@ -5,7 +5,7 @@
       "address": "127.0.0.1"
     },
     "udp": {
-      "port": 2014,
+      "port": 2013,
       "address": "127.0.0.1",
       "ipv6": false
     }
@@ -23,7 +23,7 @@
     "refreshInterval": 60000
   },
   "influxdb": {
-    "suffix": "test",
+    "suffix": "",
     "flushInterval": 2000,
     "maxBufferSize": 50000
   },
