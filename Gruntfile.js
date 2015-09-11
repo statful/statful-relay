@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         easy_rpm: {
             options: {
                 release: '<%= buildNumber %>',
-                buildArch: 'noarch',
+                buildArch: 'x86_64',
                 requires: ['nodejs >= 0.10.33'],
                 license: 'Mindera All Rights Reserved',
                 vendor: 'Mindera',
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
                     },
                     pomDir: 'build/pom',
                     url: 'http://nexus.mindera:8081/content/repositories/yum_releases',
-                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.noarch.rpm',
+                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.x86_64.rpm',
                     noproxy: 'localhost',
                     cwd: ''
                 }
