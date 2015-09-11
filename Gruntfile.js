@@ -30,12 +30,10 @@ module.exports = function (grunt) {
                 src: ['test/**/*.js']
             }
         },
-        mochacli: {
-            options: {
-                reporter: 'nyan',
-                bail: true
-            },
-            all: ['test/*.js']
+        mochaTest: {
+            test: {
+                src: ['test/*.js']
+            }
         },
         watch: {
             gruntfile: {
@@ -82,9 +80,9 @@ module.exports = function (grunt) {
         nexusDeployer: {
             release: {
                 options: {
-                    groupId: "mindera",
-                    artifactId: "<%= pkg.name %>",
-                    version: "<%= pkg.version %>-<%= buildNumber %>",
+                    groupId: 'mindera',
+                    artifactId: '<%= pkg.name %>',
+                    version: '<%= pkg.version %>-<%= buildNumber %>',
                     packaging: 'rpm',
                     auth: {
                         username: 'deployment',
@@ -110,7 +108,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'jshint',
-        'mochacli'
+        'mochaTest'
     ]);
 
     grunt.registerTask('package', [
@@ -118,6 +116,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('release', [
+        'test',
         'easy_rpm',
         'nexusDeployer'
     ]);
