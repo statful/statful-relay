@@ -15,9 +15,12 @@ config.configFile(process.argv[2], function (config) {
 
     var telemetron = new Telemetron(config.telemetronMetrics);
 
+    telemetron.inc('application_start', 1);
+
     // start the process to refresh accounts from TEL
     tel.setupAccounts(config, telemetron).on('accountsChanged', function () {
         config.destinations = influxdb.indexDestinations(config);
+        telemetron.inc('accounts_changed', 1);
     });
 
     // create servers for Carbon Listening
