@@ -1,9 +1,9 @@
 {
-  "name": "telemetry-carbon-influxdb",
-  "description": "Listens to incomming carbon metrics and writes them to influxdb",
+  "name": "telemetry-carbon",
+  "description": "Listens to incomming carbon metrics and writes them to a storage backend",
   "author": "Mindera",
   "scripts": {
-    "start": "node influxdb.js conf/config.json"
+    "start": "node tcarbon.js conf/config.json"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
     "restify-cookies": "^0.1.2",
     "simple-lru-cache": "0.0.2",
     "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git",
+    "telemetry-metric-language": "git+ssh://git@bitbucket.org:mindera/telemetry-metric-language.git",
     "winston": "^1.0.0"
   },
   "engines": {

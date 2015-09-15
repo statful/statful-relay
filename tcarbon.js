@@ -1,9 +1,9 @@
 /*jshint node:true, laxcomma:true */
 
 var config = require('./lib/config'),
-    carbon = require('./lib/carbon'),
-    collectd = require('./lib/collectd'),
-    influxdb = require('./lib/influxdb'),
+    carbon = require('./lib/listener/carbon'),
+    collectd = require('./lib/listener/collectd'),
+    influxdb = require('./lib/backend/influxdb'),
     Telemetron = require('telemetry-client-nodejs'),
     tel = require('./lib/tel');
 
@@ -19,7 +19,7 @@ config.configFile(process.argv[2], function (config) {
 
     // start the process to refresh accounts from TEL
     tel.setupAccounts(config, telemetron).on('accountsChanged', function () {
-        config.destinations = influxdb.indexDestinations(config);
+        config.destinations = influxdb.indexDestinations(config, telemetron);
         telemetron.inc('accounts_changed', 1);
     });
 
