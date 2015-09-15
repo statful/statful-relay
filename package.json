@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mindera/telemetry-carbon-influxdb.git"
+    "url": "https://bitbucket.org/mindera/telemetry-carbon.git"
   },
   "version": "0.1.0",
   "dependencies": {
