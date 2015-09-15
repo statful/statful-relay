@@ -1,5 +1,5 @@
 
-It listens to metrics on a port (default _2003_), parses the metric and flushes them to influxdb.
+It listens to metrics on a port (default _2013_), parses the metric and flushes them to influxdb.
 
 
 Run
