@@ -1,32 +1,22 @@
 {
-  "name": "telemetry-carbon",
-  "description": "Listens to incomming carbon metrics and writes them to a storage backend",
+  "name": "telemetry-relay",
+  "description": "Computes in-memory metry aggregation and relays to a centralized system",
   "author": "Mindera",
   "scripts": {
-    "start": "node tcarbon.js conf/config.json"
+    "start": "node trelay.js conf/config.json"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mindera/telemetry-carbon.git"
+    "url": "https://bitbucket.org/mindera/telemetry-relay.git"
   },
   "version": "0.1.0",
   "dependencies": {
-    "async": "^1.3.0",
-    "elasticsearch": "^4.0.2",
-    "node-cluster-io-strategy": "0.0.1",
-    "pegjs": "^0.9.0",
-    "restify": "^4.0.0",
-    "restify-cookies": "^0.1.2",
-    "simple-lru-cache": "0.0.2",
     "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git",
     "telemetry-metric-language": "git+ssh://git@bitbucket.org:mindera/telemetry-metric-language.git",
     "winston": "^1.0.0"
   },
   "engines": {
     "node": ">=0.8"
-  },
-  "bin": {
-    "ttagger": "./influxdb.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

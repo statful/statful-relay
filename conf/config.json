@@ -1,19 +1,13 @@
 {
-  "carbon": {
-    "tcp": {
-      "port": 2013,
-      "address": "127.0.0.1"
-    },
-    "udp": {
-      "port": 2013,
-      "address": "127.0.0.1",
-      "ipv6": false
-    }
+  "udp": {
+    "port": 2013,
+    "address": "127.0.0.1",
+    "ipv6": false
   },
   "telemetronMetrics": {
-    "host": "0.0.0.0",
+    "host": "172.31.6.30",
     "port": 2013,
-    "app": "carbon",
+    "app": "relay",
     "prefix": "telemetron",
     "flushInterval": 500,
     "tags": {
@@ -21,23 +15,6 @@
       "cluster": "local",
       "host": "localhost"
     }
-  },
-  "collectd": {
-    "port": 2014,
-    "address": "localhost"
-  },
-  "tel": {
-    "host": "tel.mindera",
-    "port": 80,
-    "url": {
-      "accounts": "/tel/v2.0/accounts"
-    },
-    "refreshInterval": 60000
-  },
-  "influxdb": {
-    "suffix": "",
-    "flushInterval": 2000,
-    "maxBufferSize": 50000
   },
   "winston": {
     "silent": false,

@@ -6,15 +6,11 @@
 ###############
 ### PROJECT
 - project:
-    name: 'telemetry-carbon'
+    name: 'telemetry-relay'
     project_version: '0.1.0'
-    giturl: git@bitbucket.org:mindera/telemetry-carbon.git
-    env:
-      - tvg_production
-      - telemetron_production
+    giturl: git@bitbucket.org:mindera/telemetry-relay.git
     jobs:
       - '{name}-build'
-      - '{name}-{env}-deploy'
 
 
 ###############
@@ -58,26 +54,3 @@
           npm install
           grunt release
 
-
-### Deploy
-- job-template:
-    name: "{name}-{env}-deploy"
-
-    parameters:
-        - string:
-            name: PIPELINE_VERSION
-
-    properties:
-      - x_pipeline__production_deploy
-
-    scm:
-      - x_git_shallow_clone_bitbucket_v1:
-          project_path: mind-ansible
-
-    builders:
-      - x_ansible_deploy_product_v1:
-          playbook_name: "webservice_updater"
-          playbook_version: "1.0.0"
-          env: "{env}_telemetry_relay"
-          product: "{name}"
-          app_version: "$PIPELINE_VERSION"

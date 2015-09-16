@@ -1,5 +1,6 @@
 
-It listens to metrics on a port (default _2013_), parses the metric and flushes them to influxdb.
+The Telemetry Relay can be used to process metric aggregation before sending them to the centralized storage system. This relay only ingests
+metrics via UDP.
 
 
 Run

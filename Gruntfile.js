@@ -51,7 +51,7 @@ module.exports = function (grunt) {
         },
         nodemon: {
             dev: {
-                script: 'influxdb.js',
+                script: 'trelay.js',
                 options: {
                     args: ['conf/config.json']
                 }
