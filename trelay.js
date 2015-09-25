@@ -10,7 +10,7 @@ var config = require('./lib/config'),
  */
 config.configFile(process.argv[2], function (config) {
 
-    var telemetron = new Telemetron(config.telemetronMetrics);
+    var telemetron = new Telemetron(config.telemetron);
 
     telemetron.inc('application_start', 1);
 

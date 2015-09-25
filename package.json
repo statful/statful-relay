@@ -11,7 +11,7 @@
   },
   "version": "0.1.0",
   "dependencies": {
-    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git",
+    "telemetry-client-nodejs": "^2.1.0",
     "telemetry-metric-language": "git+ssh://git@bitbucket.org:mindera/telemetry-metric-language.git",
     "winston": "^1.0.0"
   },

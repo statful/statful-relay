@@ -4,12 +4,19 @@
     "address": "127.0.0.1",
     "ipv6": false
   },
-  "telemetronMetrics": {
-    "host": "172.31.6.30",
-    "port": 2013,
-    "app": "relay",
+  "telemetron": {
+    "transport": "api",
+    "api": {
+      "host": "api.telemetron.io",
+      "port": "443",
+      "protocol": "https",
+      "path": "/tel/v2.0/metrics",
+      "token": "",
+      "timeout": 5000
+    },
     "prefix": "telemetron",
-    "flushInterval": 500,
+    "flushInterval": 1000,
+    "app": "telemetron-relay",
     "tags": {
       "env": "dev",
       "cluster": "local",
