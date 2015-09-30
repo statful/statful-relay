@@ -1,7 +1,7 @@
 /*jshint node:true, laxcomma:true */
 
-var config = require('./lib/config'),
-    relay = require('./lib/relay'),
+var config = require('./../lib/config'),
+    Relay = require('../telemetry-relay'),
     Telemetron = require('telemetry-client-nodejs');
 
 
@@ -14,6 +14,8 @@ config.configFile(process.argv[2], function (config) {
 
     telemetron.inc('application_start', 1);
 
-    relay.createServer(config, telemetron);
+    var relay = new Relay(config, telemetron);
+
+    relay.start();
 
 });
