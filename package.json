@@ -2,8 +2,9 @@
   "name": "telemetry-relay",
   "description": "Computes in-memory metry aggregation and relays to a centralized system",
   "author": "Mindera",
+  "main": "telemetry-relay.js",
   "scripts": {
-    "start": "node trelay.js conf/config.json"
+    "start": "node bin/trelay.js conf/config.json"
   },
   "repository": {
     "type": "git",
