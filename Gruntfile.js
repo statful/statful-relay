@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        buildNumber: process.env.BUILD_NUMBER || 1,
+        buildNumber: process.env.GO_PIPELINE_COUNTER || process.env.BUILD_NUMBER || 1,
 
         jshint: {
             options: {
@@ -85,12 +85,12 @@ module.exports = function (grunt) {
                     version: '<%= pkg.version %>-<%= buildNumber %>',
                     packaging: 'rpm',
                     auth: {
-                        username: 'deployment',
-                        password: 'deployment123'
+                        username: process.env.NEXUS_USERNAME,
+                        password: process.env.NEXUS_PASSWORD
                     },
                     pomDir: 'build/pom',
-                    url: 'http://nexus.mindera:8081/content/repositories/yum_releases',
-                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.x86_64.rpm',
+                    url: process.env.NEXUS_URL,
+                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.noarch.rpm',
                     noproxy: 'localhost',
                     cwd: ''
                 }
