@@ -70,6 +70,7 @@ module.exports = function (grunt) {
             release: {
                 files: [
                     {src: 'lib/**/*', dest: '/opt/<%= pkg.name %>'},
+                    {src: 'bin/**/*', dest: '/opt/<%= pkg.name %>'},
                     {src: 'node_modules/**/*', dest: '/opt/<%= pkg.name %>'},
                     {src: 'conf/**/*', dest: '/opt/<%= pkg.name %>'},
                     {src: '*.js', dest: '/opt/<%= pkg.name %>'}
