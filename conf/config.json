@@ -1,27 +1,52 @@
 {
-  "udp": {
-    "port": 2013,
-    "address": "127.0.0.1",
-    "ipv6": false
-  },
   "telemetron": {
-    "transport": "api",
-    "api": {
-      "host": "api.telemetron.io",
-      "port": "443",
-      "protocol": "https",
-      "path": "/tel/v2.0/metrics",
-      "token": "",
-      "timeout": 5000
+    "udpListen": {
+      "port": 2013,
+      "address": "127.0.0.1",
+      "ipv6": false
     },
-    "prefix": "telemetron",
-    "flushInterval": 1000,
     "app": "telemetron-relay",
+    "prefix": "telemetron",
     "tags": {
       "env": "dev",
       "cluster": "local",
       "host": "localhost"
-    }
+    },
+    "transport": "api",
+    "api": {
+      "host": "local.telemetron.io",
+      "port": "9191",
+      "protocol": "http",
+      "path": "/tel/v2.0/metrics",
+      "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
+      "timeout": 5000
+    },
+    "flushInterval": 1000,
+    "compression": false
+  },
+  "collectd": {
+    "udpListen": {
+      "port": 2023,
+      "address": "127.0.0.1",
+      "ipv6": false
+    },
+    "app": "telemetron-relay",
+    "prefix": "telemetron",
+    "tags": {
+      "env": "dev",
+      "cluster": "local",
+      "host": "localhost"
+    },
+    "transport": "api",
+    "api": {
+      "host": "local.telemetron.io",
+      "port": "9191",
+      "protocol": "http",
+      "path": "/tel/v2.0/collectd/telemetron/env=dev,cluster=local,host=localhost",
+      "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
+      "timeout": 5000
+    },
+    "compression": false
   },
   "winston": {
     "silent": false,
