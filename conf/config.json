@@ -1,6 +1,6 @@
 {
   "telemetron": {
-    "udpListen": {
+    "udpRelay": {
       "port": 2013,
       "address": "127.0.0.1",
       "ipv6": false
@@ -25,24 +25,18 @@
     "compression": false
   },
   "collectd": {
-    "udpListen": {
+    "udpRelay": {
       "port": 2023,
       "address": "127.0.0.1",
       "ipv6": false
     },
     "app": "telemetron-relay",
-    "prefix": "telemetron",
-    "tags": {
-      "env": "dev",
-      "cluster": "local",
-      "host": "localhost"
-    },
     "transport": "api",
     "api": {
       "host": "local.telemetron.io",
       "port": "9191",
       "protocol": "http",
-      "path": "/tel/v2.0/collectd/telemetron/env=dev,cluster=local,host=localhost",
+      "path": "/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost",
       "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
       "timeout": 5000
     },

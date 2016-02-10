@@ -1,1 +1,1 @@
-module.exports = require('./lib/collectd/collectd-relay.js');
+module.exports = require('./lib/collectd-relay.js');
