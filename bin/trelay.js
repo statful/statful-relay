@@ -13,12 +13,17 @@ var config = require('./../lib/config'),
 function overrideTelemetronClient(telemetronClient) {
     var metrics;
     telemetronClient.putRaw = function (metric) {
-        if (this.bufferSize == 0) {
-            metrics = [];
+
+        if (typeof metric === 'string') {
+            if (this.bufferSize == 0) {
+                metrics = [];
+            }
+            metrics.push(metric);
+            this.bufferSize = metrics.length;
+            this.buffer = JSON.stringify(metrics);
+        } else {
+            console.error('Invalid metric: ' + metric);
         }
-        metrics.push(metric);
-        this.bufferSize = metrics.length;
-        this.buffer = JSON.stringify(metrics);
     };
 }
 
