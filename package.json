@@ -38,10 +38,7 @@
     "mocha": "^2.3.2",
     "mockserver-client": "^1.0.10",
     "mockserver-grunt": "^1.0.30",
-    "node-microservice-health": "^0.1.2",
-    "pegjs": "^0.8.0",
     "q": "^1.4.1",
-    "shortid": "2.0.1",
     "sleep": "^3.0.1",
     "time-grunt": "^1.1.0"
   }
