@@ -13,7 +13,7 @@
   "version": "0.1.0",
   "dependencies": {
     "collectd-protocol": "0.0.2",
-    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git#TEL-516",
+    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git",
     "winston": "^1.0.0"
   },
   "engines": {
