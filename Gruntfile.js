@@ -141,12 +141,6 @@ module.exports = function (grunt) {
         'easy_rpm'
     ]);
 
-    grunt.registerTask('release', [
-        'test',
-        'easy_rpm',
-        'nexusDeployer'
-    ]);
-
     grunt.registerTask('integration-test', function () {
         grunt.option('force', true );
         grunt.task.run([
@@ -156,4 +150,11 @@ module.exports = function (grunt) {
         ]);
 
     });
+
+    grunt.registerTask('release', [
+        'test',
+        'integration-test',
+        'easy_rpm',
+        'nexusDeployer'
+    ]);
 };
