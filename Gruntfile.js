@@ -113,8 +113,7 @@ module.exports = function (grunt) {
             start: {
                 options: {
                     serverPort: 1080,
-                    verbose: true,
-                    trace: true
+                    verbose: true
                 }
             }
         },
