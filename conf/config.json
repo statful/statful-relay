@@ -52,5 +52,6 @@
     "showLevel": true,
     "debugStdout": true,
     "handleExceptions": true
-  }
+  },
+  "autoDiagnostics": true
 }
