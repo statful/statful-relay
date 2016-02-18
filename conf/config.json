@@ -22,7 +22,7 @@
       "timeout": 5000
     },
     "flushInterval": 1000,
-    "compression": false
+    "compression": true
   },
   "collectd": {
     "udpRelay": {
@@ -41,7 +41,9 @@
       "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
       "timeout": 5000
     },
-    "compression": false
+    "flushInterval": 1000,
+    "compression": true,
+    "autoDiagnostics": false
   },
   "winston": {
     "silent": false,

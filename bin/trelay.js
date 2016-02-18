@@ -14,7 +14,7 @@ function overrideTelemetronClient(telemetronClient) {
     var metrics;
     telemetronClient.putRaw = function (metric) {
 
-        if (metric !== undefined) {
+        if (typeof metric !== 'undefined') {
             if (this.bufferSize == 0) {
                 metrics = [];
             }
