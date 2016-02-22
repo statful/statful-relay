@@ -98,12 +98,12 @@ module.exports = function (grunt) {
                     version: '<%= pkg.version %>-<%= buildNumber %>',
                     packaging: 'rpm',
                     auth: {
-                        username: process.env.NEXUS_USERNAME,
-                        password: process.env.NEXUS_PASSWORD
+                        username: 'deployment',
+                        password: 'deployment123'
                     },
                     pomDir: 'build/pom',
-                    url: process.env.NEXUS_URL,
-                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.noarch.rpm',
+                    url: 'http://nexus.mindera:8081/content/repositories/yum_releases',
+                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.x86_64.rpm',
                     noproxy: 'localhost',
                     cwd: ''
                 }
