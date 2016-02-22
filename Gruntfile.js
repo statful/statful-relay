@@ -91,7 +91,7 @@ module.exports = function (grunt) {
                     },
                     pomDir: 'build/pom',
                     url: process.env.NEXUS_URL,
-                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.noarch.rpm',
+                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.x86_64.rpm',
                     noproxy: 'localhost',
                     cwd: ''
                 }
