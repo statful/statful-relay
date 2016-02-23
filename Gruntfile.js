@@ -141,15 +141,11 @@ module.exports = function (grunt) {
         'easy_rpm'
     ]);
 
-    grunt.registerTask('integration-test', function () {
-        grunt.option('force', true );
-        grunt.task.run([
-            'start_mockserver:start',
-            'mochacli:integration',
-            'stop_mockserver:stop'
-        ]);
-
-    });
+    grunt.registerTask('integration-test', [
+        'start_mockserver:start',
+        'mochacli:integration',
+        'stop_mockserver:stop'
+    ]);
 
     grunt.registerTask('release', [
         'test',
