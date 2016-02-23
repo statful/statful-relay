@@ -11,7 +11,6 @@ module.exports = function (grunt) {
     // Load mock-server task
     grunt.loadNpmTasks('mockserver-grunt');
 
-
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -143,8 +142,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask('integration-test', [
         'start_mockserver:start',
+        'continue:on',
         'mochacli:integration',
-        'stop_mockserver:stop'
+        'continue:off',
+        'stop_mockserver:stop',
+        'continue:fail-on-warning'
     ]);
 
     grunt.registerTask('release', [
