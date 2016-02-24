@@ -1,8 +1,8 @@
 {
-  "name": "telemetry-relay",
+  "name": "telemetron-relay",
   "description": "Computes in-memory metry aggregation and relays to a centralized system",
   "author": "Mindera",
-  "main": "telemetry-relay.js",
+  "main": "bin/relay.js",
   "scripts": {
     "start": "node bin/trelay.js conf/config.json"
   },
