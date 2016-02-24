@@ -8,6 +8,8 @@ module.exports = function (grunt) {
     // Load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
+    // Load mock-server task
+    grunt.loadNpmTasks('mockserver-grunt');
 
     grunt.initConfig({
 
@@ -30,10 +32,13 @@ module.exports = function (grunt) {
                 src: ['test/**/*.js']
             }
         },
-        mochaTest: {
-            test: {
-                src: ['test/*.js']
-            }
+        mochacli: {
+            options: {
+                reporter: 'nyan',
+                bail: true
+            },
+            unit: ['test/*.spec.js'],
+            integration: ['integration-tests/specs/**/*.spec.js']
         },
         watch: {
             gruntfile: {
@@ -54,6 +59,12 @@ module.exports = function (grunt) {
                 script: 'bin/relay.js',
                 options: {
                     args: ['conf/config.json']
+                }
+            },
+            integration: {
+                script: 'bin/relay.js',
+                options: {
+                    args: ['integration-tests/conf/config.json']
                 }
             }
         },
@@ -96,6 +107,19 @@ module.exports = function (grunt) {
                     cwd: ''
                 }
             }
+        },
+        start_mockserver: {
+            start: {
+                options: {
+                    serverPort: 1080,
+                    verbose: true
+                }
+            }
+        },
+        stop_mockserver: {
+            stop: {
+
+            }
         }
     });
 
@@ -109,17 +133,26 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'jshint',
-        'mochaTest'
+        'mochacli:unit'
     ]);
 
     grunt.registerTask('package', [
         'easy_rpm'
     ]);
 
+    grunt.registerTask('integration-test', [
+        'start_mockserver:start',
+        'continue:on',
+        'mochacli:integration',
+        'continue:off',
+        'stop_mockserver:stop',
+        'continue:fail-on-warning'
+    ]);
+
     grunt.registerTask('release', [
         'test',
+        'integration-test',
         'easy_rpm',
         'nexusDeployer'
     ]);
-
 };

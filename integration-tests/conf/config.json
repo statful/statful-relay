@@ -1,0 +1,29 @@
+{
+  "telemetronServer": {
+    "port": 3013,
+    "address": "127.0.0.1",
+    "ipv6": false
+  },
+  "collectdServer": {
+    "port": 3023,
+    "address": "127.0.0.1",
+    "ipv6": false
+  },
+  "tags": {
+    "env": "dev",
+    "cluster": "local",
+    "host": "localhost"
+  },
+  "api": {
+    "prefix": "telemetron",
+    "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
+    "host": "localhost",
+    "port": "1080",
+    "protocol": "http",
+    "timeout": 5000,
+    "metricsFlushInterval": 5,
+    "compression": false,
+    "autoDiagnostics": false
+  },
+  "autoDiagnostics": false
+}
