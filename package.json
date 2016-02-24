@@ -1,8 +1,8 @@
 {
-  "name": "telemetry-relay",
+  "name": "telemetron-relay",
   "description": "Computes in-memory metry aggregation and relays to a centralized system",
   "author": "Mindera",
-  "main": "telemetry-relay.js",
+  "main": "bin/relay.js",
   "scripts": {
     "start": "node bin/trelay.js conf/config.json"
   },
@@ -12,32 +12,34 @@
   },
   "version": "0.1.0",
   "dependencies": {
-    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git",
-    "telemetry-metric-language": "git+ssh://git@bitbucket.org:mindera/telemetry-metric-language.git",
-    "winston": "^1.0.0"
+    "collectd-protocol": "0.0.2",
+    "lodash": "^4.5.1",
+    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git"
   },
   "engines": {
     "node": ">=0.8"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-mocha": "^0.4.13",
-    "mocha": "^2.3.2",
     "chai": "^3.2.0",
+    "chai-as-promised": "^5.2.0",
+    "grunt": "^0.4.5",
     "grunt-bump": "^0.3.0",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-easy-rpm": "^1.5.3",
+    "grunt-mocha": "^0.4.13",
     "grunt-mocha-cli": "^1.11.0",
-    "grunt-mocha-test": "^0.12.7",
     "grunt-nexus-deployer": "0.0.5",
     "grunt-nodemon": "^0.4.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^3.1.0",
-    "pegjs": "^0.8.0",
-    "shortid": "2.0.1",
+    "mocha": "^2.3.2",
+    "mockserver-client": "^1.0.10",
+    "mockserver-grunt": "^1.0.30",
+    "q": "^1.4.1",
+    "sleep": "^3.0.1",
     "time-grunt": "^1.1.0"
   }
 }

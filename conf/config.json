@@ -1,36 +1,25 @@
 {
-  "udp": {
+  "telemetronServer": {
     "port": 2013,
     "address": "127.0.0.1",
     "ipv6": false
   },
-  "telemetron": {
-    "transport": "api",
-    "api": {
-      "host": "api.telemetron.io",
-      "port": "443",
-      "protocol": "https",
-      "path": "/tel/v2.0/metrics",
-      "token": "",
-      "timeout": 5000
-    },
-    "prefix": "telemetron",
-    "flushInterval": 1000,
-    "app": "telemetron-relay",
-    "tags": {
-      "env": "dev",
-      "cluster": "local",
-      "host": "localhost"
-    }
+  "collectdServer": {
+    "port": 2023,
+    "address": "127.0.0.1",
+    "ipv6": false
   },
-  "winston": {
-    "silent": false,
-    "level": "debug",
-    "colorize": false,
-    "timestamp": true,
-    "prettyPrint": false,
-    "showLevel": true,
-    "debugStdout": true,
-    "handleExceptions": true
-  }
+  "tags": {
+  },
+  "api": {
+    "prefix": null,
+    "token": null,
+    "host": null,
+    "port": null,
+    "protocol": "http",
+    "timeout": 5000,
+    "metricsFlushInterval": 1000,
+    "compression": true
+  },
+  "autoDiagnostics": true
 }

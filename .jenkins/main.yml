@@ -6,7 +6,7 @@
 ###############
 ### PROJECT
 - project:
-    name: 'telemetry-relay'
+    name: 'telemetron-relay'
     project_version: '0.1.0'
     giturl: git@bitbucket.org:mindera/telemetry-relay.git
     jobs:
