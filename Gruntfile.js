@@ -62,7 +62,7 @@ module.exports = function (grunt) {
                 }
             },
             integration: {
-                script: 'bin/trelay.js',
+                script: 'bin/relay.js',
                 options: {
                     args: ['integration-tests/conf/config.json']
                 }
