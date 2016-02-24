@@ -1,5 +1,5 @@
 
-The Telemetry Relay can be used to process metric aggregation before sending them to the centralized storage system. This relay only ingests
+The Telemetron Relay can be used to process metric aggregation before sending them to the centralized storage system. This relay only ingests
 metrics via UDP.
 
 
