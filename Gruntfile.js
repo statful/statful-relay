@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         },
         nodemon: {
             dev: {
-                script: 'bin/trelay.js',
+                script: 'bin/relay.js',
                 options: {
                     args: ['conf/config.json']
                 }

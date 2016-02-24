@@ -1,9 +1,11 @@
 /*jshint node:true, laxcomma:true */
 
-var config = require('./../lib/config'),
-    Relay = require('../telemetry-relay'),
-    CollectdRelay = require('../collectd-relay'),
-    Telemetron = require('telemetry-client-nodejs');
+var configUtil = require('./../lib/config');
+var collectdConfig = require('../conf/collectd-telemetron.json');
+var telemetronConfig = require('../conf/telemetron.json');
+var Relay = require('../lib/telemetron-relay');
+var CollectdRelay = require('../lib/collectd-relay');
+var Telemetron = require('telemetry-client-nodejs');
 
 /**
  * Major hack to be able to send json structures using Telemetron client.
@@ -30,11 +32,12 @@ function overrideTelemetronClient(telemetronClient) {
 /**
  * Starts the Telemetron relay.
  *
- * @param relayConfig The relay configuration to use
+ * @param udpConfig The UDP configuration to use
+ * @param autoDiagnostics
  * @param telemetron A Telemetron client instance
  */
-function startTelemetronRelay(relayConfig, telemetron) {
-    var telemetronRelay = new Relay(relayConfig, telemetron);
+function startTelemetronRelay(udpConfig, autoDiagnostics, telemetron) {
+    var telemetronRelay = new Relay(udpConfig, autoDiagnostics, telemetron);
     telemetronRelay.start();
 }
 
@@ -42,23 +45,27 @@ function startTelemetronRelay(relayConfig, telemetron) {
  * Starts the Telemetron relay for Collectd.
  *
  * @param collectdConfig The relay configuration to use
+ * @param udpConfig The UDP configuration
  * @param telemetron A Telemetron client instance for measuring the relay only
  */
-function startCollectdRelay(collectdConfig, telemetron) {
+function startCollectdRelay(collectdConfig, udpConfig, telemetron) {
     var collectdApiSender = new Telemetron(collectdConfig);
     overrideTelemetronClient(collectdApiSender);
 
-    var collectdRelay = new CollectdRelay(collectdConfig, telemetron, collectdApiSender);
+    var collectdRelay = new CollectdRelay(udpConfig, collectdConfig.autoDiagnostics, telemetron, collectdApiSender);
     collectdRelay.start();
 }
 
 /**
  * Parses the configuration file and starts the Relay.
  */
-config.configFile(process.argv[2], function (config) {
-    var telemetron = new Telemetron(config.telemetron);
-    telemetron.inc('application_start', 1);
+configUtil.configFile(process.argv[2], function (config) {
 
-    startTelemetronRelay(config.telemetron, telemetron);
-    startCollectdRelay(config.collectd, telemetron);
+    var telemetronConf = configUtil.buildRelayConfig(config, telemetronConfig);
+    var telemetron = new Telemetron(telemetronConf);
+    telemetron.inc('application_start', 1);
+    startTelemetronRelay(config.telemetronServer, config.autoDiagnostics, telemetron);
+
+    var collectdConf = configUtil.buildRelayConfig(config, collectdConfig);
+    startCollectdRelay(collectdConf, config.collectdServer, telemetron);
 });
