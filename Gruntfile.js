@@ -1,6 +1,18 @@
 'use strict';
 module.exports = function (grunt) {
 
+    // Command line options
+    var testSuite = grunt.option('testSuite') || 'collectd';
+
+    var targetHost = grunt.option('targetHost') || 'localhost';
+    var telemetronPort = grunt.option('telemetronPort') || 2013;
+    var collectdPort = grunt.option('collectdPort') || 2023;
+
+    var durationMs = grunt.option('durationMs') || 60000;
+    var clientsCount = grunt.option('clientsCount') || 200;
+    var metricsPerRequest = grunt.option('metricsPerRequest') || 70;
+    var cycleDurationMs = grunt.option('cycleDurationMs') || 10000;
+
     // Show elapsed time at the end
 
     require('time-grunt')(grunt);
@@ -38,7 +50,22 @@ module.exports = function (grunt) {
                 bail: true
             },
             unit: ['test/*.spec.js'],
-            integration: ['integration-tests/specs/**/*.spec.js']
+            integration: ['integration-tests/specs/**/*.spec.js'],
+            performance: {
+                options: {
+                    env: {
+                        timeout: 1800000,
+                        durationMs: durationMs,
+                        clientsCount: clientsCount,
+                        metricsPerRequest: metricsPerRequest,
+                        cycleDurationMs: cycleDurationMs,
+                        targetHost: targetHost,
+                        collectdPort: collectdPort,
+                        telemetronPort: telemetronPort
+                    }
+        },
+                src: ['performance-tests/specs/' + testSuite + '.spec.js']
+            }
         },
         watch: {
             gruntfile: {
@@ -154,5 +181,9 @@ module.exports = function (grunt) {
         'integration-test',
         'easy_rpm',
         'nexusDeployer'
+    ]);
+
+    grunt.registerTask('performance-test', [
+        'mochacli:performance'
     ]);
 };
