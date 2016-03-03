@@ -31,7 +31,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-easy-rpm": "^1.5.3",
     "grunt-mocha": "^0.4.13",
-    "grunt-mocha-cli": "^1.11.0",
+    "grunt-mocha-cli": "^2.0.0",
     "grunt-nexus-deployer": "0.0.5",
     "grunt-nodemon": "^0.4.0",
     "jshint-stylish": "^1.0.0",
