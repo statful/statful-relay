@@ -18,7 +18,7 @@
     "prefix": "telemetron",
     "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
     "host": "localhost",
-    "port": "1080",
+    "port": "3080",
     "protocol": "http",
     "timeout": 5000,
     "metricsFlushInterval": 5,
