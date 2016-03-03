@@ -1,4 +1,7 @@
 'use strict';
+
+var mockserverConf = require('./integration-tests/conf/mockserver.json');
+
 module.exports = function (grunt) {
 
     // Show elapsed time at the end
@@ -111,7 +114,7 @@ module.exports = function (grunt) {
         start_mockserver: {
             start: {
                 options: {
-                    serverPort: 1080,
+                    serverPort: mockserverConf.port,
                     verbose: true
                 }
             }
