@@ -7,3 +7,5 @@ node_modules
 .vagrant
 *.rpm
 *.log
+*.jar
+node_modules
