@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://bitbucket.org/mindera/telemetry-relay.git"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "collectd-protocol": "0.2.0",
     "lodash": "^4.5.1",
