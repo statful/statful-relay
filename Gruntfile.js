@@ -101,7 +101,7 @@ module.exports = function (grunt) {
         easy_rpm: {
             options: {
                 release: '<%= buildNumber %>',
-                buildArch: 'x86_64',
+                buildArch: 'noarch',
                 requires: ['nodejs >= 0.10.33'],
                 license: 'Mindera All Rights Reserved',
                 vendor: 'Mindera',
