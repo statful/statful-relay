@@ -34,6 +34,11 @@
 
     properties:
       - x_pipeline__build
+      - inject:
+          properties-content: |
+              NEXUS_USERNAME=deployment
+              NEXUS_PASSWORD=deployment123
+              NEXUS_URL=http://nexus.mindera:8081/content/repositories/yum_releases
 
     wrappers:
       - timestamps
