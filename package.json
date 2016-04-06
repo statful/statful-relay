@@ -12,7 +12,7 @@
   },
   "version": "0.1.1",
   "dependencies": {
-    "collectd-protocol": "0.2.0",
+    "collectd-protocol": "0.3.0",
     "lodash": "^4.5.1",
     "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git"
   },
