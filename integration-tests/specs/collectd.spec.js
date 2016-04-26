@@ -54,7 +54,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
     });
 
     it('should send a simple metric to Telemetron', function () {
-        mockTool.mockSimple('/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost', 201);
+        mockTool.mockSimple('/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost', 201);
 
         var metrics = [simpleMetric];
         var metric = collectd.encoder.encodeCustom(metrics, customPartsConf);
@@ -63,7 +63,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
 
         var verified = mockTool.verify({
                 'method': 'PUT',
-                'path': '/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost',
+                'path': '/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost',
                 'body': JSON.stringify([resultMetric])
             });
 
@@ -71,7 +71,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
     });
 
     it('should send a collection of metrics to Telemetron', function () {
-        mockTool.mockSimple('/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost', 201);
+        mockTool.mockSimple('/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost', 201);
 
         var metrics = [simpleMetric, simpleMetric, simpleMetric, simpleMetric];
         var metric = collectd.encoder.encodeCustom(metrics, customPartsConf);
@@ -80,7 +80,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
 
         var verified = mockTool.verify({
             'method': 'PUT',
-            'path': '/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost',
+            'path': '/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost',
             'body': JSON.stringify([resultMetric, resultMetric, resultMetric, resultMetric])
         });
 
@@ -88,7 +88,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
     });
 
     it('should send metrics from multiple requests to Telemetron', function () {
-        mockTool.mockSimple('/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost', 201);
+        mockTool.mockSimple('/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost', 201);
 
         var metrics = [simpleMetric];
         var metric = collectd.encoder.encodeCustom(metrics, customPartsConf);
@@ -101,7 +101,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
 
         var verified = mockTool.verify({
             'method': 'PUT',
-            'path': '/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost',
+            'path': '/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost',
             'body': JSON.stringify(metricsToVerify)
         });
 
@@ -109,7 +109,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
     });
 
     it('should handle with underlying service errors', function () {
-        mockTool.mockSimple('/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost', 500);
+        mockTool.mockSimple('/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost', 500);
 
         var metrics = [simpleMetric];
         var metric = collectd.encoder.encodeCustom(metrics, customPartsConf);
@@ -123,7 +123,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
 
         var verified = mockTool.verify({
             'method': 'PUT',
-            'path': '/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost',
+            'path': '/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost',
             'body': JSON.stringify([resultMetric])
         }, 2);
 
@@ -131,13 +131,13 @@ describe('Collectd metrics are sent from collectd agents', function () {
     });
 
     it('should handle invalid metrics', function () {
-        mockTool.mockSimple('/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost', 500);
+        mockTool.mockSimple('/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost', 500);
 
         subject.send('|\\sw>!@,[]/%*.');
 
         var verified = mockTool.verify({
             'method': 'PUT',
-            'path': '/tel/v2.0/collectd/collectd/env=dev,cluster=local,host=localhost'
+            'path': '/tel/v2.0/collectd/system/env=dev,cluster=local,host=localhost'
         }, 0);
 
         return expect(verified).to.eventually.be.fulfilled;
