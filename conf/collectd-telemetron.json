@@ -2,7 +2,7 @@
   "app": "telemetron-relay",
   "transport": "api",
   "api": {
-    "path": "/tel/v2.0/collectd/collectd/{tags}"
+    "path": "/tel/v2.0/collectd/system/{tags}"
   },
   "autoDiagnostics": false
 }
