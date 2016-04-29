@@ -14,6 +14,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
 
     var simpleMetric = {
         host: 'localhost',
+        tags: 'environment=qa,cluster=prodA,cluster=prodB',
         time: 1455098772,
         interval: 10,
         plugin: 'GenericJMX',
@@ -22,12 +23,15 @@ describe('Collectd metrics are sent from collectd agents', function () {
         type_instance: 'committed',
         dstypes: [ 'gauge' ],
         values: [ 152567808.92 ],
-        dsnames: [ 'value' ],
-        tags: 'environment=qa,cluster=prodA,cluster=prodB'
+        dsnames: [ 'value' ]
     };
 
     var resultMetric = {
         host: 'localhost',
+        tags: [
+            { name: 'environment', values: ['qa'] },
+            { name: 'cluster', values: ['prodA', 'prodB'] }
+        ],
         time: 1455098772,
         interval: 10,
         plugin: 'GenericJMX',
@@ -36,11 +40,7 @@ describe('Collectd metrics are sent from collectd agents', function () {
         type_instance: 'committed',
         dstypes: [ 'gauge' ],
         values: [ 152567808.92 ],
-        dsnames: [ 'value' ],
-        tags: [
-            { name: 'environment', values: ['qa'] },
-            { name: 'cluster', values: ['prodA', 'prodB'] }
-        ]
+        dsnames: [ 'value' ]
     };
 
     var subject;
