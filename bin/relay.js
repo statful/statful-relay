@@ -23,6 +23,10 @@ function overrideTelemetronClient(telemetronClient) {
             metrics.push(metric);
             this.bufferSize = metrics.length;
             this.buffer = JSON.stringify(metrics);
+
+            if (this.bufferSize >= this.flushSize) {
+                this.flush();
+            }
         } else {
             console.error('Invalid metric: ' + metric);
         }
