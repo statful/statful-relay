@@ -18,6 +18,7 @@
     "port": null,
     "protocol": "http",
     "timeout": 5000,
+    "metricsFlushSize": 2000,
     "metricsFlushInterval": 1000,
     "compression": true
   },

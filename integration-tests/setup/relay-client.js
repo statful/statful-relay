@@ -9,7 +9,8 @@ var RelayClient = function (host, port) {
 };
 
 RelayClient.prototype.send = function(message) {
-    this.udpClient.send(message, 0, message.length, this.port, this.host, function(err) {
+    var buffer = new Buffer(message);
+    this.udpClient.send(buffer, 0, buffer.length, this.port, this.host, function(err) {
         if (err) throw err;
     });
 };
