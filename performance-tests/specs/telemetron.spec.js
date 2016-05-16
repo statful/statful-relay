@@ -17,9 +17,9 @@ var cycleDurationMs = process.env.cycleDurationMs;
 describe('Telemetron metrics are sent from clients', function () {
     this.timeout(process.env.timeout);
 
-    var metric1 = 'testacc.system.derive.disk,cluster=integration,host=localhost,device=xvda,type=disk_octets,operation=read 1.0 1445108447';
-    var metric2 = 'testacc.application.counter.application_start,app=tel,env=dev,cluster=local,host=localhost 1 1454962639 sum,count,count_ps,10';
-    var metric3 = 'testacc.application.buffer.flush_length,app=tel,env=dev,cluster=local,host=localhost 1 1454962640 avg,10';
+    var metric1 = 'testacc.system.derive.disk,cluster=integration,host=localhost,device=xvda,type=disk_octets,operation=read VALUE TIME';
+    var metric2 = 'testacc.application.counter.application_start,app=tel,env=dev,cluster=local,host=localhost VALUE TIME sum,10';
+    var metric3 = 'testacc.application.buffer.flush_length,app=tel,env=dev,cluster=local,host=localhost VALUE TIME avg,10';
 
     var subject;
 
@@ -44,7 +44,10 @@ describe('Telemetron metrics are sent from clients', function () {
 
         for (i = 0; i < clientsCount; i++) {
             setInterval(function() {
-                subject.send(metric1 + '\n' + metric2 + '\n' + metric3);
+                var metricLine1 = metric1.replace("TIME", new Date().getTime()).replace("VALUE", Math.random());
+                var metricLine2 = metric2.replace("TIME", new Date().getTime()).replace("VALUE", Math.random());
+                var metricLine3 = metric3.replace("TIME", new Date().getTime()).replace("VALUE", Math.random());
+                subject.send(metricLine1 + '\n' + metricLine2 + '\n' + metricLine3);
             }, cycleDurationMs);
         }
     });
