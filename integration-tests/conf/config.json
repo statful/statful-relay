@@ -22,8 +22,7 @@
     "protocol": "http",
     "timeout": 5000,
     "metricsFlushInterval": 5,
-    "compression": false,
-    "autoDiagnostics": false
+    "compression": false
   },
   "autoDiagnostics": false
 }

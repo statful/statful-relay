@@ -5,7 +5,7 @@ var mockserverConf = require('./integration-tests/conf/mockserver.json');
 module.exports = function (grunt) {
 
     // Command line options
-    var testSuite = grunt.option('testSuite') || 'collectd';
+    var testSuite = grunt.option('testSuite') || 'telemetron';
 
     var targetHost = grunt.option('targetHost') || 'localhost';
     var telemetronPort = grunt.option('telemetronPort') || 2013;
@@ -84,60 +84,6 @@ module.exports = function (grunt) {
                 tasks: ['jshint:test', 'mochacli']
             }
         },
-        nodemon: {
-            dev: {
-                script: 'bin/relay.js',
-                options: {
-                    args: ['conf/config.json']
-                }
-            },
-            integration: {
-                script: 'bin/relay.js',
-                options: {
-                    args: ['integration-tests/conf/config.json']
-                }
-            }
-        },
-        easy_rpm: {
-            options: {
-                release: '<%= buildNumber %>',
-                buildArch: 'x86_64',
-                requires: ['nodejs >= 0.10.33'],
-                license: 'Mindera All Rights Reserved',
-                vendor: 'Mindera',
-                group: 'Applications',
-                url: 'git@bitbucket.org:mindera/<%= pkg.name %>.git'
-            },
-            release: {
-                files: [
-                    {src: 'lib/**/*', dest: '/opt/<%= pkg.name %>'},
-                    {src: 'bin/**/*', dest: '/opt/<%= pkg.name %>'},
-                    {src: 'node_modules/**/*', dest: '/opt/<%= pkg.name %>'},
-                    {src: 'conf/**/*', dest: '/opt/<%= pkg.name %>'},
-                    {src: '*.js', dest: '/opt/<%= pkg.name %>'}
-                ]
-            }
-        },
-
-        nexusDeployer: {
-            release: {
-                options: {
-                    groupId: 'mindera',
-                    artifactId: '<%= pkg.name %>',
-                    version: '<%= pkg.version %>-<%= buildNumber %>',
-                    packaging: 'rpm',
-                    auth: {
-                        username: process.env.NEXUS_USERNAME,
-                        password: process.env.NEXUS_PASSWORD
-                    },
-                    pomDir: 'build/pom',
-                    url: process.env.NEXUS_URL,
-                    artifact: '<%= pkg.name %>-<%= pkg.version %>-<%= buildNumber %>.x86_64.rpm',
-                    noproxy: 'localhost',
-                    cwd: ''
-                }
-            }
-        },
         start_mockserver: {
             options: {
                 serverPort: mockserverConf.port,
@@ -152,9 +98,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('serve', [
-        'nodemon'
-    ]);
 
     grunt.registerTask('dev', [
         'watch'
@@ -165,10 +108,6 @@ module.exports = function (grunt) {
         'mochacli:unit'
     ]);
 
-    grunt.registerTask('package', [
-        'easy_rpm'
-    ]);
-
     grunt.registerTask('integration-test', [
         'start_mockserver',
         'continue:on',
@@ -176,13 +115,6 @@ module.exports = function (grunt) {
         'continue:off',
         'stop_mockserver',
         'continue:fail-on-warning'
-    ]);
-
-    grunt.registerTask('release', [
-        'test',
-        'integration-test',
-        'easy_rpm',
-        'nexusDeployer'
     ]);
 
     grunt.registerTask('performance-test', [

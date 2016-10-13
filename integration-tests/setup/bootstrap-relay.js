@@ -13,6 +13,10 @@ testRelay.stderr.on('data', function(data) {
     stderr += data.toString();
 });
 
+testRelay.stdout.on('data', function(data) {
+    console.log(data);
+});
+
 testRelay.on('close', function() {
     console.log(stderr);
 });

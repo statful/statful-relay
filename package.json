@@ -4,18 +4,18 @@
   "author": "Mindera",
   "main": "bin/relay.js",
   "scripts": {
-    "start": "node bin/trelay.js conf/config.json"
+    "start": "node bin/relay.js conf/config.json"
   },
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/mindera/telemetry-relay.git"
   },
-  "version": "0.1.1",
+  "version": "1.0.0",
   "dependencies": {
     "collectd-protocol": "0.3.3",
     "lodash": "^4.5.1",
     "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git#da5631a",
-    "statful-client": "~4.1.4"
+    "statful-client": "~4.1.5"
   },
   "engines": {
     "node": ">=0.8"
@@ -30,11 +30,8 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-easy-rpm": "^1.5.3",
     "grunt-mocha": "^0.4.13",
     "grunt-mocha-cli": "^2.0.0",
-    "grunt-nexus-deployer": "0.0.5",
-    "grunt-nodemon": "^0.4.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^3.1.0",
     "mocha": "^2.3.2",
