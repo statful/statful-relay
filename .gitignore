@@ -1,11 +1,3 @@
 node_modules
-
-# WebStorm / IntelliJ IDEA project files
 .idea
-*.iml
-*.log
-.vagrant
-*.rpm
-*.log
-*.jar
-node_modules
+*.DS_Store
