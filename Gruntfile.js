@@ -139,16 +139,15 @@ module.exports = function (grunt) {
             }
         },
         start_mockserver: {
-            start: {
-                options: {
-                    serverPort: mockserverConf.port,
-                    verbose: true
-                }
+            options: {
+                serverPort: mockserverConf.port,
+                verbose: true
             }
         },
         stop_mockserver: {
-            stop: {
-
+            options: {
+                serverPort: mockserverConf.port,
+                verbose: true
             }
         }
     });
@@ -171,11 +170,11 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('integration-test', [
-        'start_mockserver:start',
+        'start_mockserver',
         'continue:on',
         'mochacli:integration',
         'continue:off',
-        'stop_mockserver:stop',
+        'stop_mockserver',
         'continue:fail-on-warning'
     ]);
 
