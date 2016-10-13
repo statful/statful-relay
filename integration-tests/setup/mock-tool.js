@@ -6,6 +6,8 @@ var Q = require('q');
 
 var VERIFY_TIMEOUT = 1000;
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 function mockSimple(path, httpStatus) {
     mockServerClient.mockSimpleResponse(path, httpStatus);
 }
