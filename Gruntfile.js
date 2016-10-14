@@ -117,8 +117,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'jshint',
-        'integration-test',
-        'performance-test'
+        'integration-test'
     ]);
 
     grunt.registerTask('default', [

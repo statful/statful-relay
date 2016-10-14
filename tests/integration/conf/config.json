@@ -21,6 +21,6 @@
     "port": "3080",
     "timeout": 5000
   },
-  "metricsFlushInterval": 5,
+  "flushInterval": 5,
   "systemStats": false
 }

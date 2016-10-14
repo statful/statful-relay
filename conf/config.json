@@ -9,6 +9,7 @@
     "address": "127.0.0.1",
     "ipv6": false
   },
+  "app": "statful-relay",
   "tags": {
   },
   "transport": "api",
@@ -16,7 +17,7 @@
     "token": "STATFUL_API_TOKEN",
     "timeout": 2000,
   },
-  "metricsFlushSize": 1000,
-  "metricsFlushInterval": 3000,
+  "flushSize": 1000,
+  "flushInterval": 3000,
   "systemStats": false
 }

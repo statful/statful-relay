@@ -1,10 +1,5 @@
 'use strict';
 
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
-//var expect = require('chai').expect;
-
 var RelayClient = require('../setup/relay-client');
 
 var targetHost = process.env.targetHost;
@@ -31,7 +26,7 @@ describe('Statful metrics are sent from clients', function () {
         subject.close();
     });
 
-    it('should send a collection of metrics to Telemetron', function (done) {
+    it('should send a collection of metrics to Statful', function (done) {
         setTimeout(done, process.env.durationMs);
 
         var metrics = '';
