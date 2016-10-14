@@ -1,5 +1,5 @@
 {
-  "telemetronServer": {
+  "statfulServer": {
     "port": 3013,
     "address": "127.0.0.1",
     "ipv6": false
@@ -14,15 +14,13 @@
     "cluster": "local",
     "host": "localhost"
   },
+  "transport": "api",
   "api": {
-    "prefix": "telemetron",
     "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
     "host": "localhost",
     "port": "3080",
-    "protocol": "http",
-    "timeout": 5000,
-    "metricsFlushInterval": 5,
-    "compression": false
+    "timeout": 5000
   },
-  "autoDiagnostics": false
+  "metricsFlushInterval": 5,
+  "systemStats": false
 }

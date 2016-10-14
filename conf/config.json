@@ -1,5 +1,5 @@
 {
-  "telemetronServer": {
+  "statfulServer": {
     "port": 2013,
     "address": "127.0.0.1",
     "ipv6": false
@@ -11,16 +11,12 @@
   },
   "tags": {
   },
+  "transport": "api",
   "api": {
-    "prefix": null,
-    "token": null,
-    "host": null,
-    "port": null,
-    "protocol": "http",
-    "timeout": 5000,
-    "metricsFlushSize": 2000,
-    "metricsFlushInterval": 1000,
-    "compression": true
+    "token": "STATFUL_API_TOKEN",
+    "timeout": 2000,
   },
-  "autoDiagnostics": true
+  "metricsFlushSize": 1000,
+  "metricsFlushInterval": 3000,
+  "systemStats": false
 }

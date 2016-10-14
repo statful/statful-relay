@@ -1,20 +1,20 @@
 /*jshint node:true, laxcomma:true */
 
 var configUtil = require('./../lib/config');
-var telemetronConfig = require('../conf/telemetron.json');
-var Relay = require('../lib/telemetron-relay');
-var Telemetron = require('statful-client');
+var statfulConfig = require('../conf/statful.json');
+var Relay = require('../lib/statful-relay');
+var Statful = require('statful-client');
 
 /**
- * Starts the Telemetron relay.
+ * Starts the Statful relay.
  *
  * @param udpConfig The UDP configuration to use
  * @param autoDiagnostics
- * @param telemetron A Telemetron client instance
+ * @param statful A Statful client instance
  */
-function startTelemetronRelay(udpConfig, autoDiagnostics, telemetron) {
-    var telemetronRelay = new Relay(udpConfig, autoDiagnostics, telemetron);
-    telemetronRelay.start();
+function startStatfulRelay(udpConfig, autoDiagnostics, statful) {
+    var statfulRelay = new Relay(udpConfig, autoDiagnostics, statful);
+    statfulRelay.start();
 }
 
 /**
@@ -22,8 +22,10 @@ function startTelemetronRelay(udpConfig, autoDiagnostics, telemetron) {
  */
 configUtil.configFile(process.argv[2], function (config) {
 
-    var telemetronConf = configUtil.buildRelayConfig(config, telemetronConfig);
-    var telemetron = new Telemetron(telemetronConf);
-    telemetron.counter('application_start', 1);
-    startTelemetronRelay(config.telemetronServer, config.autoDiagnostics, telemetron);
+    var statfulLoadedConfing = configUtil.buildRelayConfig(config, statfulConfig);
+    var statful = new Statful(statfulLoadedConfing);
+
+    statful.counter('application_start', 1);
+
+    startStatfulRelay(config.statfulServer, config.systemStats, statful);
 });

@@ -6,7 +6,7 @@ var Q = require('q');
 
 var VERIFY_TIMEOUT = 1000;
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 function mockSimple(path, httpStatus) {
     mockServerClient.mockSimpleResponse(path, httpStatus);
@@ -24,12 +24,12 @@ function verify(request, count) {
     var deferred = Q.defer();
 
     var verifyCallback = function () {
-        return mockServerClient.verify(request, count, true)
+        return mockServerClient.verify(request, count, true);
     };
 
     var mockServerCheckerTimeout = setTimeout(function () {
         cancel();
-        if (count == 0) {
+        if (count === 0) {
             deferred.resolve(verifyCallback());
         } else {
             deferred.reject('Timeout waiting for mock server');

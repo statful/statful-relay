@@ -5,10 +5,10 @@ var mockserverConf = require('./tests/integration/conf/mockserver.json');
 module.exports = function (grunt) {
 
     // Command line options
-    var testSuite = grunt.option('testSuite') || 'telemetron';
+    var testSuite = grunt.option('testSuite') || 'statful';
 
     var targetHost = grunt.option('targetHost') || 'localhost';
-    var telemetronPort = grunt.option('telemetronPort') || 2013;
+    var statfulPort = grunt.option('statfulPort') || 2013;
     var collectdPort = grunt.option('collectdPort') || 2023;
 
     var durationMs = grunt.option('durationMs') || 60000;
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                         cycleDurationMs: cycleDurationMs,
                         targetHost: targetHost,
                         collectdPort: collectdPort,
-                        telemetronPort: telemetronPort
+                        statfulPort: statfulPort
                     }
         },
                 src: ['tests/performance/specs/' + testSuite + '.spec.js']
