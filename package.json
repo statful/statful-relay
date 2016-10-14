@@ -1,20 +1,18 @@
 {
-  "name": "telemetron-relay",
+  "name": "statful-relay",
   "description": "Computes in-memory metry aggregation and relays to a centralized system",
-  "author": "Mindera",
+  "author": "Mindera Software Craft",
   "main": "bin/relay.js",
   "scripts": {
     "start": "node bin/relay.js conf/config.json"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mindera/telemetry-relay.git"
+    "url": "https://github.com/statful/statful-relay.git"
   },
   "version": "1.0.0",
   "dependencies": {
-    "collectd-protocol": "0.3.3",
     "lodash": "^4.5.1",
-    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git#da5631a",
     "statful-client": "~4.1.5"
   },
   "engines": {

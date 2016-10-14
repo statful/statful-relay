@@ -1,6 +1,6 @@
 'use strict';
 
-var mockserverConf = require('./integration-tests/conf/mockserver.json');
+var mockserverConf = require('./tests/integration/conf/mockserver.json');
 
 module.exports = function (grunt) {
 
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
                 src: ['*.js', 'lib/**/*.js']
             },
             test: {
-                src: ['test/**/*.js']
+                src: ['tests/**/*.js']
             }
         },
         mochacli: {
@@ -52,8 +52,7 @@ module.exports = function (grunt) {
                 reporter: 'nyan',
                 bail: true
             },
-            unit: ['test/*.spec.js'],
-            integration: ['integration-tests/specs/**/*.spec.js'],
+            integration: ['tests/integration/specs/**/*.spec.js'],
             performance: {
                 options: {
                     env: {
@@ -67,7 +66,7 @@ module.exports = function (grunt) {
                         telemetronPort: telemetronPort
                     }
         },
-                src: ['performance-tests/specs/' + testSuite + '.spec.js']
+                src: ['tests/performance/specs/' + testSuite + '.spec.js']
             }
         },
         watch: {
@@ -103,11 +102,6 @@ module.exports = function (grunt) {
         'watch'
     ]);
 
-    grunt.registerTask('test', [
-        'jshint',
-        'mochacli:unit'
-    ]);
-
     grunt.registerTask('integration-test', [
         'start_mockserver',
         'continue:on',
@@ -119,5 +113,15 @@ module.exports = function (grunt) {
 
     grunt.registerTask('performance-test', [
         'mochacli:performance'
+    ]);
+
+    grunt.registerTask('test', [
+        'jshint',
+        'integration-test',
+        'performance-test'
+    ]);
+
+    grunt.registerTask('default', [
+        'test'
     ]);
 };
