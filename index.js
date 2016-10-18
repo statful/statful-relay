@@ -28,7 +28,7 @@ var start = function(configPath) {
         configToTry.load().then(
             function(loadedConfig) {
                 var statfulClient = new Statful(configToTry.getStatfulClientConfig());
-                var statfulRelay = new Relay(loadedConfig.statfulServer, loadedConfig.systemStats, statfulClient);
+                var statfulRelay = new Relay(loadedConfig, statfulClient);
 
                 if (statfulClient && statfulRelay) {
                     statfulRelay.start();

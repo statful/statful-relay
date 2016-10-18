@@ -4,11 +4,6 @@
     "address": "127.0.0.1",
     "ipv6": false
   },
-  "collectdServer": {
-    "port": 2023,
-    "address": "127.0.0.1",
-    "ipv6": false
-  },
   "app": "statful-relay",
   "tags": {
   },

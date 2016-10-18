@@ -1,13 +1,11 @@
 {
-  "statfulServer": {
-    "port": 3013,
-    "address": "127.0.0.1",
-    "ipv6": false
-  },
-  "collectdServer": {
-    "port": 3023,
-    "address": "127.0.0.1",
-    "ipv6": false
+  "listeners": {
+    "statful": {
+      "port": 3013,
+      "address": "127.0.0.1",
+      "ipv6": false,
+      "stats": false
+    }
   },
   "app": "statful-relay-integration-tests",
   "tags": {
