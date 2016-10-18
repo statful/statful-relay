@@ -18,6 +18,7 @@ before(function () {
 
 after(function () {
     testRelay.kill();
+    mockTool.reset();
 });
 
 afterEach(function() {
