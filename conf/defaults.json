@@ -1,12 +1,14 @@
 {
-  "statfulServer": {
-    "port": 2013,
-    "address": "127.0.0.1",
-    "ipv6": false
+  "listeners": {
+    "statful": {
+      "port": 2013,
+      "address": "127.0.0.1",
+      "ipv6": false,
+      "stats": false
+    }
   },
   "app": "statful-relay",
-  "tags": {
-  },
+  "tags": {},
   "transport": "api",
   "api": {
     "token": "STATFUL_API_TOKEN",
