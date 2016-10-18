@@ -1,6 +1,6 @@
 {
   "name": "statful-relay",
-  "description": "Computes in-memory metry aggregation and relays to a centralized system.",
+  "description": "Gather metrics from different sources and relays it to a centralized system.",
   "author": "Mindera - Software Craft",
   "main": "index.js",
   "bin": {
