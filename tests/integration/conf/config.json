@@ -9,6 +9,7 @@
     "address": "127.0.0.1",
     "ipv6": false
   },
+  "app": "statful-relay-integration-tests",
   "tags": {
     "env": "dev",
     "cluster": "local",
@@ -18,7 +19,7 @@
   "api": {
     "token": "8002aef6-1870-4fc1-a2cd-4c0a279712a2",
     "host": "localhost",
-    "port": "3080",
+    "port": 3080,
     "timeout": 5000
   },
   "flushInterval": 5,

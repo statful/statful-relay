@@ -15,7 +15,7 @@
   "transport": "api",
   "api": {
     "token": "STATFUL_API_TOKEN",
-    "timeout": 2000,
+    "timeout": 2000
   },
   "flushSize": 1000,
   "flushInterval": 3000,

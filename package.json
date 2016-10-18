@@ -2,9 +2,12 @@
   "name": "statful-relay",
   "description": "Computes in-memory metry aggregation and relays to a centralized system",
   "author": "Mindera Software Craft",
-  "main": "bin/relay.js",
+  "main": "index.js",
+  "bin": {
+    "statful-relay": "./bin/statful-relay"
+  },
   "scripts": {
-    "start": "node bin/relay.js conf/config.json"
+    "test": "node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
@@ -12,8 +15,13 @@
   },
   "version": "1.0.0",
   "dependencies": {
+    "bluebird": "^3.4.6",
+    "fs-extra": "^0.30.0",
+    "jsonschema": "^1.1.0",
     "lodash": "^4.5.1",
-    "statful-client": "~4.1.5"
+    "pm2": "^2.0.18",
+    "statful-client": "~4.1.5",
+    "yargs": "^6.2.0"
   },
   "engines": {
     "node": ">=0.8"
