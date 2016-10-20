@@ -27,7 +27,7 @@ var start = function(configPath) {
     return new Promise(function(resolve, reject) {
         configToTry.load().then(
             function(loadedConfig) {
-                var statfulClient = new Statful(configToTry.getStatfulClientConfig());
+                var statfulClient = new Statful(loadedConfig.statfulClient);
                 var statfulRelay = new Relay(loadedConfig, statfulClient);
 
                 if (statfulClient && statfulRelay) {
