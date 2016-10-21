@@ -1,7 +1,7 @@
 'use strict';
 
 var childProcess = require('child_process');
-var testRelay = childProcess.spawn('node', ['bin/relay.js', 'integration-tests/conf/config.json']);
+var testRelay = childProcess.spawn('node', ['bin/statful-relay', 'start', 'tests/integration/conf/config.json']);
 
 var stderr = '';
 

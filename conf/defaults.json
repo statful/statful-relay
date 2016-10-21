@@ -1,0 +1,26 @@
+{
+  "listeners": {
+    "statful": {
+      "port": 2013,
+      "address": "127.0.0.1",
+      "ipv6": false,
+      "stats": false
+    }
+  },
+  "statfulClient": {
+    "app": "statful-relay",
+    "tags": {},
+    "transport": "api",
+    "api": {
+      "token": "STATFUL_API_TOKEN",
+      "timeout": 2000
+    },
+    "flushSize": 1000,
+    "flushInterval": 3000,
+    "systemStats": false
+  },
+  "bunyan": {
+    "name": "statful-relay",
+    "streams": []
+  }
+}

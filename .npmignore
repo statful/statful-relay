@@ -1,9 +1,6 @@
-# Created by .ignore support plugin (hsz.mobi)
-.jenkins
 .jshintignore
 .jshintrc
-*.rpm
-*.log
-*.jar
-integration-tests
-performance-tests
+.npmrc
+.idea
+.travis.yml
+tests

@@ -1,20 +1,28 @@
 {
-  "name": "telemetron-relay",
-  "description": "Computes in-memory metry aggregation and relays to a centralized system",
-  "author": "Mindera",
-  "main": "bin/relay.js",
+  "name": "statful-relay",
+  "description": "Gather metrics from different sources and relays it to a centralized system.",
+  "author": "Mindera - Software Craft",
+  "main": "index.js",
+  "bin": {
+    "statful-relay": "./bin/statful-relay"
+  },
   "scripts": {
-    "start": "node bin/trelay.js conf/config.json"
+    "test": "node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mindera/telemetry-relay.git"
+    "url": "https://github.com/statful/statful-relay.git"
   },
-  "version": "0.1.1",
+  "version": "1.0.0",
   "dependencies": {
-    "collectd-protocol": "0.3.3",
+    "bluebird": "^3.4.6",
+    "bunyan": "^1.8.3",
+    "fs-extra": "^0.30.0",
+    "jsonschema": "^1.1.0",
     "lodash": "^4.5.1",
-    "telemetry-client-nodejs": "git+ssh://git@bitbucket.org:mindera/telemetry-client-nodejs.git"
+    "pm2": "^2.0.18",
+    "statful-client": "~4.1.5",
+    "yargs": "^6.2.0"
   },
   "engines": {
     "node": ">=0.8"
@@ -29,11 +37,8 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-easy-rpm": "^1.5.3",
     "grunt-mocha": "^0.4.13",
     "grunt-mocha-cli": "^2.0.0",
-    "grunt-nexus-deployer": "0.0.5",
-    "grunt-nodemon": "^0.4.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^3.1.0",
     "mocha": "^2.3.2",
