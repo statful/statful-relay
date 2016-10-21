@@ -129,7 +129,7 @@ At the momment we only support one kind of listener called `statful`. However, h
 | _flushSize_ | Defines the maximum buffer size before performing a flush. | `number` | `1000` | **NO** |
 | _systemStats_ | Defines if client should send its own system statistics. | `boolean` | `false` | **NO** |
 | _tags_ | Defines the global tags to send along with own relay metrics. | `object` | `{}` | **NO** |
-| _transport_ | Defines the transport layer to be used to send metrics.<br><br> **Valid Transports:** `udp, api` | `string` | **none** | **YES** |
+| _transport_ | Defines the transport layer to be used to send metrics.</br></br> **Valid Transports:** `udp, api` | `string` | **none** | **YES** |
 
 To get help and information about this specific options please read the [Statful Client NodeJS documentation](https://github.com/statful/statful-client-nodejs).
 
