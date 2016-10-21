@@ -106,7 +106,7 @@ Shows a small help for the collector.
 
 ### Configuration
 
-In the configuration file you can find a main section called `listeners` and the rest of the `general configuration` options.
+In the configuration file you can find three main sections: `listeners, statfulClient and bunyan`.
 
 **Listeners**
 
@@ -119,7 +119,7 @@ At the momment we only support one kind of listener called `statful`. However, h
 | _port_ | Define the port where the listener should wait for data. | `number` | **none** | **YES** |
 | _stats_ |  Defines if the listener's metric stats should be sent. | `boolean` | **none** | **YES** |
 
-**General Configuration**
+**Statful Client**
 
 | Option | Description | Type | Default | Required |
 |:---|:---|:---|:---|:---|
@@ -132,6 +132,17 @@ At the momment we only support one kind of listener called `statful`. However, h
 | _transport_ | Defines the transport layer to be used to send metrics.<br><br> **Valid Transports:** `udp, api` | `string` | **none** | **YES** |
 
 To get help and information about this specific options please read the [Statful Client NodeJS documentation](https://github.com/statful/statful-client-nodejs).
+
+**Bunyan**
+
+| Option | Description | Type | Default | Required |
+|:---|:---|:---|:---|:---|
+| _name_ | Defines the logger name. | `string` | **none** | **YES** |
+| _level_ | Defines the global output level. | `string` | **none** | **NO** |
+| _streams_ | Define the logger streams. By default, when the value is an empty array, logger will output to `proccess.stdout`. | `array` | `[]` | **YES** |
+
+> **NOTE:** We had only documented some bunyan config fields here but you can set all the supported configs by Bunyan.
+
 
 ## Authors
 
