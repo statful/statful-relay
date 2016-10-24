@@ -15,6 +15,8 @@ var Interface = function() {
         .example('$0 start-managed /etc/statful-relay/conf/statful-relay-conf.json', 'Starts the Statful Relay, managed by pm2, with the given config.')
         .help('help')
         .alias('h', 'help')
+        .version()
+        .alias('v', 'version')
         .epilog('Copyright 2016 Statful.');
     var argv = yargs.argv;
     var path = argv.path;
