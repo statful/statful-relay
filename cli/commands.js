@@ -4,6 +4,7 @@ var Relay = require('../lib/relay');
 var fs = require('fs-extra');
 var path = require('path');
 var pm2 = require('pm2');
+var Promise = require('bluebird');
 
 var generateConfig = function(configPath) {
     var normalizedPath = path.normalize(configPath);
