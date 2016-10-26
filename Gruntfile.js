@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                 reporter: require('jshint-stylish')
             },
             gruntfile: {
-                src: ['Gruntfile.js']
+                src: 'Gruntfile.js'
             },
             js: {
                 src: ['*.js', 'lib/**/*.js']
