@@ -51,7 +51,7 @@ module.exports = function (grunt) {
             options: {
                 reporter: 'nyan',
                 bail: true,
-                timeout: 30000
+                timeout: 60000
             },
             integration: ['tests/integration/specs/**/*.spec.js'],
             performance: {
