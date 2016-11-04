@@ -4,7 +4,7 @@ var conf = require('../conf/mockserver.json');
 var mockServerClient = require('mockserver-client').mockServerClient(conf.host, conf.port);
 var Q = require('q');
 
-var VERIFY_TIMEOUT = 2000;
+var VERIFY_TIMEOUT = 10000;
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
