@@ -21,6 +21,7 @@
       "port": 3080,
       "timeout": 5000
     },
+    "flushSize": 1,
     "flushInterval": 5,
     "systemStats": false
   },

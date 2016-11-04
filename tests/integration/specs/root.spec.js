@@ -13,7 +13,7 @@ before(function (done) {
     // TODO - change this read an healthcheck
     setTimeout(function() {
         done();
-    }, 500);
+    }, 1);
 });
 
 after(function () {
