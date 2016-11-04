@@ -45,7 +45,6 @@
     "mockserver-client": "^1.0.10",
     "mockserver-grunt": "^1.0.30",
     "q": "^1.4.1",
-    "sleep": "^3.0.1",
     "time-grunt": "^1.1.0"
   }
 }
