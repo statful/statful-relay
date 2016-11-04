@@ -50,7 +50,8 @@ module.exports = function (grunt) {
         mochacli: {
             options: {
                 reporter: 'nyan',
-                bail: true
+                bail: true,
+                timeout: 30000
             },
             integration: ['tests/integration/specs/**/*.spec.js'],
             performance: {
@@ -65,7 +66,7 @@ module.exports = function (grunt) {
                         collectdPort: collectdPort,
                         statfulPort: statfulPort
                     }
-        },
+                },
                 src: ['tests/performance/specs/' + testSuite + '.spec.js']
             }
         },
