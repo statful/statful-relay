@@ -117,8 +117,8 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test', [
-        'jshint',
-        'integration-test'
+        'jshint'
+        //'integration-test'
     ]);
 
     grunt.registerTask('default', [
