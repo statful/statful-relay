@@ -5,10 +5,6 @@ node_js:
   - "0.12"
   - "4"
   - "stable"
-addons:
-  apt:
-    packages:
-      - default-jre
 before_install:
   - npm install -g grunt-cli
 install:
