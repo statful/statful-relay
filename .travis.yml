@@ -5,6 +5,10 @@ node_js:
   - "0.12"
   - "4"
   - "stable"
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
 before_install:
   - npm install -g grunt-cli
 install:
