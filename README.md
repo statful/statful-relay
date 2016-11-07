@@ -57,20 +57,26 @@ You can find here an usage example of the Statful Relay. In the following exampl
       "stats": false
     }
   },
-  "app": "statful-relay",
-  "tags": {
-     "env": "readme",
+  "statfulClient": {
+    "app": "statful-relay",
+    "tags": {
+       "env": "readme",
+    },
+    "transport": "api",
+    "api": {
+      "token": "STATFUL_API_TOKEN",
+      "timeout": 2000,
+      "host": "api.statful.com", // Default value
+      "port": 443 // Default value
+    },
+    "flushSize": 1000,
+    "flushInterval": 3000,
+    "systemStats": false
   },
-  "transport": "api",
-  "api": {
-    "token": "STATFUL_API_TOKEN",
-    "timeout": 2000,
-    "host": "api.statful.com", // Default value
-    "port": 443 // Default value
-  },
-  "flushSize": 1000,
-  "flushInterval": 3000,
-  "systemStats": false
+  "bunyan": {
+    "name": "stdout",
+    "streams": []
+  }
 }
 ```
 
