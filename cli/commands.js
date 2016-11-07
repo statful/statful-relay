@@ -32,7 +32,11 @@ var start = function(configPath) {
 
                 if (statfulClient && statfulRelay) {
                     statfulRelay.start();
-                    statfulClient.counter('application_start', 1);
+
+                    if (loadedConfig.statfulClient.systemStats) {
+                        statfulClient.counter('application_start', 1);
+                    }
+
                     resolve(path.normalize(configPath));
                 } else {
                     reject('Error starting Statful Relay with given configuration.');

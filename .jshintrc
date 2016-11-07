@@ -13,6 +13,7 @@
     "quotmark": "single",
     "undef": true,
     "unused": true,
+    "latedef":false,
     "trailing": true,
     "smarttabs": true,
     "globals": {
