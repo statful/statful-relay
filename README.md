@@ -99,6 +99,18 @@ $ statful-relay start-managed <path>
 Starts the relay managed by pm2 with the config on given path.
 
 ```bash
+$ statful-relay stop-managed
+```
+
+Stops the relay managed by pm2.
+
+```bash
+$ statful-relay restart-managed
+```
+
+Restarts the relay managed by pm2.
+
+```bash
 $ statful-relay help
 ```
 

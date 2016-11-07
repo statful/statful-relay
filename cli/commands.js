@@ -57,6 +57,7 @@ var startManaged = function(configPath) {
                 reject(err);
             } else {
                 pm2.start({
+                    name: 'statful-relay',
                     script: 'statful-relay',
                     args: 'start ' + configPath
                 }, function(err) {
@@ -75,8 +76,52 @@ var startManaged = function(configPath) {
     });
 };
 
+var stopManaged = function() {
+    return new Promise(function(resolve, reject) {
+        pm2.connect(function(err) {
+            if (err) {
+                reject(err);
+            } else {
+                pm2.stop('statful-relay',
+                    function(err) {
+                    pm2.disconnect();
+
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve();
+                    }
+                });
+            }
+        });
+    });
+};
+
+var restartManaged = function() {
+    return new Promise(function(resolve, reject) {
+        pm2.connect(function(err) {
+            if (err) {
+                reject(err);
+            } else {
+                pm2.restart('statful-relay',
+                    function(err) {
+                        pm2.disconnect();
+
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve();
+                        }
+                    });
+            }
+        });
+    });
+};
+
 module.exports = {
     generateConfig: generateConfig,
     start: start,
-    startManaged: startManaged
+    startManaged: startManaged,
+    stopManaged: stopManaged,
+    restartManaged: restartManaged
 };
