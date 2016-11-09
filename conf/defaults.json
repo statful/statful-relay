@@ -21,6 +21,7 @@
   },
   "bunyan": {
     "name": "statful-relay",
+    "level": "debug",
     "streams": []
   }
 }
