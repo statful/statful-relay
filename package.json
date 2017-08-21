@@ -21,7 +21,7 @@
     "jsonschema": "1.1.0",
     "lodash": "4.16.6",
     "pm2": "2.0.19",
-    "statful-client": "~4.3.3",
+    "statful-client": "~4.3.4",
     "yargs": "6.3.0"
   },
   "engines": {
