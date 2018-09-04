@@ -141,13 +141,22 @@ At the momment we only support one kind of listener called `statful`. However, h
 
 | Option | Description | Type | Default | Required |
 |:---|:---|:---|:---|:---|
-| _api_ | Defined API configurations. Inside of it you should configure `token (required), timeout, host and port`. | `object` | **none** | **NO** |
-| _app_ | Defines the application global name. | `string` | **none** | **YES** |
+| _app_ | Defines the application global name. If specified sets a global tag `app=setValue`. | `string` | **none** | **NO** |
+| _default_ | Object to set methods options. | `object` | `{}` | **NO** |
+| _api_ | Defined API configurations. | `object` | **none** | **NO** |
+| _dryRun_ | Defines if metrics should be output to the logger instead of being send. | `boolean` | `false` | **NO** |
+| _systemStats_ | Enables sending metrics with flush stats. | `boolean` | `true` | **NO** |
 | _flushInterval_ | Defines the periodicity of buffer flushes in **miliseconds**. | `number` | `3000` | **NO** |
 | _flushSize_ | Defines the maximum buffer size before performing a flush. | `number` | `1000` | **NO** |
-| _systemStats_ | Defines if client should send its own system statistics. | `boolean` | `false` | **NO** |
-| _tags_ | Defines the global tags to send along with own relay metrics. | `object` | `{}` | **NO** |
-| _transport_ | Defines the transport layer to be used to send metrics.</br></br> **Valid Transports:** `udp, api` | `string` | **none** | **YES** |
+| _namespace_ | Defines the global namespace. | `string` | `application` | **NO** |
+| _sampleRate_ | Defines the rate sampling. **Should be a number between [1, 100]**. | `number` | `100` | **NO** |
+| _tags_ | Defines the global tags. | `object` | `{}` | **NO** |
+| _transport_ | Defines the transport layer to be used to send metrics.<br><br> **Valid Transports:** `udp, api` | `string` | **none** | **YES** |
+| _host_ | Defines the host name to where the metrics should be sent. Can also be set inside _api_. | `string` | `127.0.0.1` | **NO** |
+| _path_ | Defines the api path to where the metrics should be sent. Can also be set inside _api_. | `string` | `/tel/v2.0/metric` | **NO** |
+| _port_ | Defines the port. Can also be set inside _api_. | `string` | `2013` | **NO** |
+| _token_ | Defines the token to be used.  Must be set inside _api_. | `string` | **none** | **NO** |
+| _timeout_ | Defines the timeout for the transport layers in **miliseconds**. Must be set inside _api_. | `number` | `2000` | **NO** |
 
 To get help and information about this specific options please read the [Statful Client NodeJS documentation](https://github.com/statful/statful-client-nodejs).
 
