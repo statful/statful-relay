@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     // Load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
@@ -8,10 +8,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('mockserver-grunt');
 
     grunt.initConfig({
-
         pkg: grunt.file.readJSON('package.json'),
 
-        buildNumber: process.env.GO_PIPELINE_COUNTER || process.env.BUILD_NUMBER || 1,
+        buildNumber:
+            process.env.GO_PIPELINE_COUNTER || process.env.BUILD_NUMBER || 1,
 
         watch: {
             gruntfile: {
@@ -29,15 +29,5 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('dev', [
-        'watch'
-    ]);
-
-    grunt.registerTask('test', [
-        'jshint'
-    ]);
-
-    grunt.registerTask('default', [
-        'test'
-    ]);
+    grunt.registerTask('dev', ['watch']);
 };
