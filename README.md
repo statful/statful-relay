@@ -128,7 +128,7 @@ Shows a small help for the collector.
 In the configuration file you can find three main sections: `debug, listeners, statfulClient and bunyan`.
 
 **Debug**
-If enabled, Statful-Relay will expose an Http Server on port 9000 to download heapdumps.
+If enabled, Statful-Relay will expose an Http Server on port 9000 to download heapdumps and show the memory in usage.
 
 | Route | Description | Type |
 |:---|:---|:---|
