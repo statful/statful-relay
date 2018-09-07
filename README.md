@@ -49,6 +49,7 @@ You can find here an usage example of the Statful Relay. In the following exampl
 
 ```json
 {
+  "debug": false,
   "listeners": {
     "statful": {
       "port": 2013,
@@ -124,11 +125,20 @@ Shows a small help for the collector.
 
 ### Configuration
 
-In the configuration file you can find three main sections: `listeners, statfulClient and bunyan`.
+In the configuration file you can find three main sections: `debug, listeners, statfulClient and bunyan`.
+
+**Debug**
+If enabled, Statful-Relay will expose an Http Server on port 9000 to download heapdumps.
+
+| Route | Description | Type |
+|:---|:---|
+| /heapdump | Download heapdump. | `gzip` |
+| /memory | Shows the memory in usage. | `string` |
+
 
 **Listeners**
 
-At the momment we only support one kind of listener called `statful`. However, here are the reference for listeners.
+At the moment we only support one kind of listener called `statful`. However, here are the reference for listeners.
 
 | Option | Description | Type | Default | Required |
 |:---|:---|:---|:---|:---|
