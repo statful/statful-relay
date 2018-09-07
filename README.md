@@ -131,7 +131,7 @@ In the configuration file you can find three main sections: `debug, listeners, s
 If enabled, Statful-Relay will expose an Http Server on port 9000 to download heapdumps.
 
 | Route | Description | Type |
-|:---|:---|
+|:---|:---|:---|
 | /heapdump | Download heapdump. | `gzip` |
 | /memory | Shows the memory in usage. | `string` |
 
