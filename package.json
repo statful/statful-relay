@@ -1,4 +1,4 @@
-eset{
+{
   "name": "statful-relay",
   "description": "Gather metrics from different sources and relays it to a centralized system.",
   "author": "Mindera - Software Craft",
