@@ -13,17 +13,17 @@
     "type": "git",
     "url": "https://github.com/statful/statful-relay.git"
   },
-  "version": "1.1.7",
+  "version": "1.1.8",
   "dependencies": {
     "bluebird": "3.4.6",
     "bunyan": "1.8.4",
     "fs-extra": "0.30.0",
     "jsonschema": "1.1.0",
     "lodash": "^4.17.15",
-    "pm2": "^3.5.1",
+    "pm2": "^4.4.0",
     "statful-client": "~5.0.0",
-    "v8-profiler": "^5.7.0",
-    "yargs": "6.3.0"
+    "v8-profiler-node8": "^6.2.0",
+    "yargs": "^15.3.1"
   },
   "engines": {
     "node": ">=4.4.0"
