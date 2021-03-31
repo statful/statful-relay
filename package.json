@@ -16,14 +16,14 @@
   "version": "1.1.8",
   "dependencies": {
     "bluebird": "3.4.6",
-    "bunyan": "1.8.4",
+    "bunyan": "1.8.14",
     "fs-extra": "0.30.0",
     "jsonschema": "1.1.0",
     "lodash": "^4.17.15",
     "netmask": "2.0.1",
-    "pm2": "^4.5.5",
+    "pm2": "^3.5.2",
     "statful-client": "~5.0.0",
-    "v8-profiler-node8": "^6.2.0",
+    "v8-profiler-node8": "^6.3.0",
     "yargs": "^15.3.1"
   },
   "engines": {
