@@ -20,6 +20,7 @@
     "fs-extra": "0.30.0",
     "jsonschema": "1.1.0",
     "lodash": "^4.17.15",
+    "netmask": "2.0.1",
     "pm2": "^4.5.5",
     "statful-client": "~5.0.0",
     "v8-profiler-node8": "^6.2.0",
